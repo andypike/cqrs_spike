@@ -1,0 +1,27 @@
+body {
+  margin: 20px;
+}
+
+h1 {
+  margin-bottom: 15px;
+}
+
+table {
+  @extend .table;
+  @extend .table-striped;
+  @extend .table-bordered;
+}
+
+.button {
+  @extend .btn;
+}
+
+.primary-button {
+  @extend .btn;
+  @extend .btn-primary;
+}
+
+.control_bar {
+  @extend .well;
+  @extend .well-small;
+}

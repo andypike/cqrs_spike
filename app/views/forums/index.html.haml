@@ -1,0 +1,45 @@
+%h1 CQRS Experiment
+%p A sample forum using CQRS to play around with things.
+
+%h2 Forums
+%p Here is the list of forums being read from the read database.
+
+.control_bar
+  = link_to "Create Forum", new_forum_path, :class => 'primary-button'
+
+%table
+  %thead
+    %tr
+      %th Id
+      %th Forum Name
+      %th Entity Id
+      %th
+  %tbody  
+    - @forums.each do |forum|
+      %tr
+        %td= forum.id
+        %td= forum.name
+        %td= forum.entity_id
+        %td= link_to "Edit", edit_forum_path(forum), :class => "button"
+  
+%h2 All Events
+%p Here are all events in the Redis Event Store.
+
+%table
+  %thead
+    %tr
+      %th Redis Key
+      %th Event Name
+      %th Entity Id
+      %th Event Data
+      %th Fired At
+  %tbody
+    - @events.each do |event|
+      %tr
+        %td= event.key
+        %td= event.name
+        %td= event.entity_id
+        %td= event.data
+        %td
+          = time_ago_in_words(event.fired_at)
+          ago

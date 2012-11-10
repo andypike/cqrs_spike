@@ -1,0 +1,8 @@
+%h1 Create a forum
+
+= simple_form_for :forum, :url => forums_path, :html => { :class => 'form-horizontal' } do |f|
+  = f.input :name
+
+  .form-actions
+    = f.button :submit, :value => "Save", :class => "primary-button"
+    = link_to "Cancel", forums_path, :class => "button"
